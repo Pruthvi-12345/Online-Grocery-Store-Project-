@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const API_URL = "http://localhost:8080/user/";
 
 class UserServices {
@@ -28,6 +27,5 @@ class UserServices {
     return axios.post(`${API_URL}${email}`);
   }
 }
-
 
 export default new UserServices();
