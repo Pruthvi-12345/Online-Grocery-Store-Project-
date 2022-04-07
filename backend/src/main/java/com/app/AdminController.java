@@ -14,7 +14,6 @@ import com.app.pojos.Role;
 import com.app.pojos.User;
 import com.app.service.IUserService;
 
-
 @RestController
 @RequestMapping("/admin")
 @CrossOrigin
@@ -23,7 +22,7 @@ public class AdminController {
 	private IUserService userService;
 
 	public AdminController() {
-		System.out.println("in ctor of " + getClass().getName());
+		System.out.println("in constructor of " + getClass().getName());
 	}
 
 	@GetMapping
