@@ -39,6 +39,14 @@ class ProductDetails extends Component {
       window.location.assign("/login");
     }
     OrderService.placeOrder(this.state.product.id, this.state.qty);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Order Placed Successfully...',
+      showConfirmButton: false,
+      timer: 5000,
+    });
+    window.location.href = "/product";
   };
 
   renderImage = (id) => {
