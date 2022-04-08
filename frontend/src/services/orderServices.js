@@ -6,7 +6,7 @@ class OrderService {
   placeOrder(pid, qty) {
     const user = JSON.parse(window.sessionStorage.getItem("user"));
     axios.post(`${ORDER_URL}${user.id}/${pid}/${qty}`).then((response) => {
-      window.location.assign("/product");
+      return response.status;
     });
   }
 
