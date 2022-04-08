@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import service from "../../services/productSevice";
 import OrderService from "../../services/orderServices";
+import Swal from 'sweetalert2';
 
 class ProductDetails extends Component {
   state = {
