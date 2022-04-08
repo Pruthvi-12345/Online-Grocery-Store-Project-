@@ -45,6 +45,14 @@ class ShowCart extends Component {
   order = (id) => {
     console.log(id);
     orderService.placeCartOrder(id);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Order Placed Successfully...',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    window.location.href = "/product";
   };
 
   render() {
