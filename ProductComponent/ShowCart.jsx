@@ -3,7 +3,6 @@ import service from "../../services/productSevice";
 import orderService from "../../services/orderServices";
 import Swal from 'sweetalert2';
 
-
 class ShowCart extends Component {
   state = {
     cartId: "",
@@ -53,8 +52,10 @@ class ShowCart extends Component {
       title: 'Order Placed Successfully...',
       showConfirmButton: false,
       timer: 1500
-    })
-    window.location.href = "/product";
+    });
+    setTimeout(() => {
+      window.location.assign("/product");
+    }, 1700);
   };
 
   render() {
@@ -83,7 +84,7 @@ class ShowCart extends Component {
               <div
                 className="row"
                 key={product.id}
-                style={{ marginBottom: "5rem" }}
+                style={{ marginBottom: "1rem" }}
               >
                 <div className="col-sm-4">
                   <img

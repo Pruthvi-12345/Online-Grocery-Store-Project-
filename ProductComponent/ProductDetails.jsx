@@ -45,9 +45,12 @@ class ProductDetails extends Component {
       icon: 'success',
       title: 'Order Placed Successfully...',
       showConfirmButton: false,
-      timer: 5000,
+      timer: 1500
     });
-    window.location.href = "/product";
+    setTimeout(() => {
+      window.location.assign("/product");
+    }, 1700);
+    
   };
 
   renderImage = (id) => {

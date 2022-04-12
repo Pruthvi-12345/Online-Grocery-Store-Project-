@@ -18,14 +18,22 @@ class SideBar extends Component {
 
     service.getAllSubCategories().then((response) => {
       const subcategories = response.data;
-      this.setState({ subcategories });
+      const cats = this.state.categories;
+      for (const cat of cats) {
+        cat.subctg = [];
+        for (const subcat of subcategories) {
+          if (cat.ctgName === subcat.ctg.ctgName) {
+            cat.subctg.push(subcat);
+          }
+        }
+      }
+      this.setState({ categories: cats });
     });
   }
 
   render() {
     const { categories, subcategories } = this.state;
     return (
-      <React.Fragment>
         <div className="menu-bar">
           <ul>
             {categories.map((category) => (
@@ -38,13 +46,12 @@ class SideBar extends Component {
                 </a>
                 <div className="sub-menu-1">
                   <ul>
-                    {subcategories.map((subcategory) => (
+                    {category?.subctg?.map((subcategory) => (
                       <li key={subcategory.id}>
                         <a
                           href={`/product/subcategory/${subcategory.subCtgName}`}
                         >
-                          {category.ctgName === subcategory.ctg.ctgName &&
-                            subcategory.subCtgName}
+                          {subcategory.subCtgName}
                         </a>
                       </li>
                     ))}
@@ -54,7 +61,6 @@ class SideBar extends Component {
             ))}
           </ul>
         </div>
-      </React.Fragment>
     );
   }
 }
